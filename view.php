@@ -41,7 +41,7 @@ $PAGE->set_heading($site->fullname);
 // $PAGE->requires->js_init_call('filterSelection');
 
 $PAGE->set_url('/coursemanager/view.php');
-$PAGE->set_pagelayout('mycourses');
+//$PAGE->set_pagelayout('mycourses');
 // $PAGE->set_secondary_navigation(false);
 
 $PAGE->set_pagetype('teachertools');
