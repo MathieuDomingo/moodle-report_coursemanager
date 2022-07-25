@@ -50,7 +50,7 @@ $PAGE->set_pagetype('teachertools');
 
 $PAGE->blocks->add_region('content');
 $PAGE->set_title($site->fullname);
-$PAGE->set_secondary_navigation(false);
+// $PAGE->set_secondary_navigation(false);
 $PAGE->theme->addblockposition  = BLOCK_ADDBLOCK_POSITION_CUSTOM;
 
 // First, retrieve all enrollment instances.
@@ -87,7 +87,7 @@ else if (!$confirm) {
 	');
     echo $OUTPUT->box_start('generalbox', 'notice');
     echo html_writer::tag('p', get_string('delete_cohort_confirm', 'report_coursemanager'));
-	
+
 	$url_confirm_delete = new moodle_url('delete_cohort.php', array('confirm' => 1, 'id' => $courseid));
     echo html_writer::div(html_writer::link($url_confirm_delete, get_string('button_delete_cohort_confirm', 'report_coursemanager'), array('class' => 'text-white')), 'btn btn-info') . " ";
 
@@ -105,8 +105,8 @@ else if (!$confirm) {
 	$context = context_course::instance($course->id);
 	$eventparams = array('context' => $context, 'courseid' => $courseid);
 	$event = \report_coursemanager\event\course_cohort_unenrolled::create($eventparams);
-	$event->trigger();	
-		
+	$event->trigger();
+
 	$url = new moodle_url('view.php', array('done' => 'cohort_deleted'));
-    redirect($url);	
-    } 
+    redirect($url);
+    }

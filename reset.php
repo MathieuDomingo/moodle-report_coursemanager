@@ -55,7 +55,7 @@ $PAGE->set_pagetype('teachertools');
 
 $PAGE->blocks->add_region('content');
 $PAGE->set_title($site->fullname);
-$PAGE->set_secondary_navigation(false);
+// $PAGE->set_secondary_navigation(false);
 
 $mform = new course_reset_form();
 

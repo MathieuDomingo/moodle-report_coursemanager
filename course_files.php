@@ -43,7 +43,7 @@ $site = get_site();
 $PAGE->set_context($context);
 $PAGE->set_url('/report/coursemanager/course_files.php');
 $PAGE->set_pagelayout('mycourses');
-$PAGE->set_secondary_navigation(false);
+// $PAGE->set_secondary_navigation(false);
 
 $PAGE->set_pagetype('teachertools');
 $PAGE->blocks->add_region('content');
@@ -77,7 +77,7 @@ $coursetable->align = array('right', 'left', 'left');
 $coursetable->head = array(
     get_string('plugin', 'report_coursemanager'),
     get_string('size', 'report_coursemanager'),
-	get_string('number_of_files', 'report_coursemanager'), 
+	get_string('number_of_files', 'report_coursemanager'),
 	get_string('comment', 'report_coursemanager')
 );
 $coursetable->data = array();
@@ -134,7 +134,7 @@ foreach ($cxsizes as $cxdata) {
 		$row[] = $size . "Mo";
 		$row[] = $cxdata->countfiles;
     }
-	
+
 	// Now add line to show comments about files.
     $row[] = $details[0];
 
@@ -160,11 +160,11 @@ print html_writer::div('
 ');
 print $OUTPUT->heading(get_string('coursesize', 'report_coursemanager'). " - ". format_string($course->fullname));
 if (array_sum($total)>0) {
-	
+
 	print html_writer::tag('h4', get_string('totalsize', 'report_coursemanager').array_sum($total).' Mo');
 	// print html_writer::tag('h4', '&nbsp;');
 	if (get_config('tool_recyclebin', 'coursebinenable') == 1) {
-		print html_writer::tag('p', get_string('warn_recyclebin', 'report_coursemanager')); 
+		print html_writer::tag('p', get_string('warn_recyclebin', 'report_coursemanager'));
 	} else {
 		print html_writer::tag('h4', '&nbsp;');
 	}
@@ -172,12 +172,12 @@ if (array_sum($total)>0) {
 	echo '<tr><td>';
 	print html_writer::table($coursetable);
 	echo '</td><td style="min-width: 30%; padding-left: 20px;">';
-	print html_writer::tag('h5', get_string('global_chart', 'report_coursemanager')); 
+	print html_writer::tag('h5', get_string('global_chart', 'report_coursemanager'));
 	echo $OUTPUT->render($chart_sizes_mod, false).'</td></tr>';
 	echo '</table>';
 	// print html_writer::tag('p', '<div style="max-height: 50% !important"> ' . $OUTPUT->render($chart_sizes_mod) . '</div>');
 
-	
+
 	// echo $OUTPUT->render($chart_sizes_mod);
 } else {
 	print html_writer::tag('p', '<div class=" alert alert-info"><i class="fa fa-glass"></i> ' . get_string('empty_files_course', 'report_coursemanager') . '</div>');

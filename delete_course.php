@@ -48,7 +48,7 @@ $PAGE->set_pagetype('teachertools');
 
 $PAGE->blocks->add_region('content');
 $PAGE->set_title($site->fullname);
-$PAGE->set_secondary_navigation(false);
+// $PAGE->set_secondary_navigation(false);
 // Force the add block out of the default area.
 
 $infocourse = $DB->get_record('course', array('id' => $courseid));
