@@ -113,6 +113,18 @@ print('
 // First, retrieve all courses where user is enrolled.
 $list_user_courses = enrol_get_users_courses($USER->id, false, '' , 'fullname ASC');
 
+if(is_siteadmin())
+{
+  if($_GET['admin_view'])
+  {
+    global $DB;
+    $limit = $_GET['limit'] ?? 100;
+    $offset = $_GET['offset'] ?? 0;
+    $query = "SELECT * from {course} limit $limit offset $offset";
+    $list_user_courses = $DB->get_records_sql($query);
+  }
+}
+
 // If empty : user is not enrolled as teacher in any course. Show warning.
 if(count($list_user_courses) == 0) {
     echo html_writer::div('<h2>Pas de cours</h2>
@@ -152,7 +164,7 @@ if(count($list_user_courses) == 0) {
 
 
         // If user is enrolled as teacher in course.
-	    if ($is_teacher[$role]->roleid == 3) {
+	    if ($is_teacher[$role]->roleid == 3 or is_siteadmin()) {
 
 //////////////////
 			$all_row_classes = '';
