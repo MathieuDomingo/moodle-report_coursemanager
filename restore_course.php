@@ -50,7 +50,7 @@ $PAGE->set_context($context);
 $PAGE->set_heading($site->fullname);
 
 $PAGE->set_url('/report/coursemanager/reset.php', array('id'=>$id));
-$PAGE->set_pagelayout('mycourses');
+// $PAGE->set_pagelayout('mycourses');
 $PAGE->set_pagetype('teachertools');
 
 $PAGE->blocks->add_region('content');

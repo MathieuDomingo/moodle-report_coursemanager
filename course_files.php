@@ -42,7 +42,7 @@ $site = get_site();
 // Page settings.
 $PAGE->set_context($context);
 $PAGE->set_url('/report/coursemanager/course_files.php');
-$PAGE->set_pagelayout('mycourses');
+// $PAGE->set_pagelayout('mycourses');
 // $PAGE->set_secondary_navigation(false);
 
 $PAGE->set_pagetype('teachertools');

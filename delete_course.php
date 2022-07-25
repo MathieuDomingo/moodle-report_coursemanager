@@ -43,7 +43,7 @@ $PAGE->set_context($context);
 $PAGE->set_heading($site->fullname);
 
 $PAGE->set_url('/report/coursemanager/delete_course.php');
-$PAGE->set_pagelayout('mycourses');
+// $PAGE->set_pagelayout('mycourses');
 $PAGE->set_pagetype('teachertools');
 
 $PAGE->blocks->add_region('content');

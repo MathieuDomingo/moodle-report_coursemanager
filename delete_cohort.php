@@ -44,7 +44,7 @@ $PAGE->set_context($context);
 $PAGE->set_heading($site->fullname);
 
 $PAGE->set_url('/theme/coursemanager/navcoursemanager/view.php');
-$PAGE->set_pagelayout('mycourses');
+// $PAGE->set_pagelayout('mycourses');
 $PAGE->set_pagetype('teachertools');
 
 
